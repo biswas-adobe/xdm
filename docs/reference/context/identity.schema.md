@@ -31,10 +31,10 @@ Identity is used to clearly distinguish people that are interacting with digital
 
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
-| [@id](#@id) | `string` | Optional | Identity (this schema) |
-| [xdm:namespace](#xdmnamespace) | Namespace | Optional | Identity (this schema) |
+| [@id](#@id) | `string` | Required if identity is specified as a combination of namespace and id. Either namespace and id or xid attribute is required  | Identity (this schema) |
+| [xdm:namespace](#xdmnamespace) | Namespace | Required if identity is specified as a combination of namespace and id. Either namespace and id or xid attribute is required | Identity (this schema) |
 | [xdm:primary](#xdmprimary) | `boolean` | Optional | Identity (this schema) |
-| [xdm:xid](#xdmxid) | `string` | Optional | Identity (this schema) |
+| [xdm:xid](#xdmxid) | `string` | Required if identity is specified in the native xid form. Either namespace and id or xid attribute is required | Identity (this schema) |
 | `*` | any | Additional | this schema *allows* additional properties |
 
 ## @id
@@ -43,7 +43,7 @@ Identity is used to clearly distinguish people that are interacting with digital
 Identity of the consumer in the related namespace.
 
 `@id`
-* is optional
+* is required if identity is specified as a combination of namespace and id. Either namespace and id or xid attribute is required
 * type: `string`
 * defined in this schema
 
@@ -64,7 +64,7 @@ Identity of the consumer in the related namespace.
 The namespace associated with the `xid` attribute and matched up with the AAM data source integration code.
 
 `xdm:namespace`
-* is optional
+* is required if identity is specified as a combination of namespace and id. Either namespace and id or xid attribute is required
 * type: Namespace
 * defined in this schema
 
@@ -102,7 +102,7 @@ Indicates this identity is the preferred identity. Is used as a hint to help sys
 When present, this value represents a cross-namespace identifier that is unique across all namespace-scoped identifiers in all namespaces.
 
 `xdm:xid`
-* is optional
+* is required if identity is specified as a combination of namespace and id. Either namespace and id or xid attribute is required
 * type: `string`
 * defined in this schema
 
